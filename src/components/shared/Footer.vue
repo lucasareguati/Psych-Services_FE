@@ -15,7 +15,7 @@
 export default {
   computed: {
     getRoute() {
-      return window.location.pathname === '/contacto' || window.location.pathname === '/profesionales';
+      return window.location.pathname === '/contacto';
     }
   }
 }
