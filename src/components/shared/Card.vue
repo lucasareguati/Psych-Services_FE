@@ -7,7 +7,11 @@ export default {
     ProfessionaIdentificationlProfessionalCard: Number,
     ProfessionalApproach: String, 
     ProfessionalFirstExpertise: String,
-    ProfessionalSecondExpertise: String
+    ProfessionalSecondExpertise: String,
+    ProfessionalAppointmentType: String,
+    ProfessionalSessionCost: Number,
+    ProfessionalCurrency: String,
+    ProfessionalAppointmentDuration: Number
   },
 }
 </script>
@@ -45,15 +49,27 @@ export default {
         <span>
             {{ ProfessionalSecondExpertise }}
         </span>
-    </div>    
-
+    </div>
+    <div class="dFlex--spaceBetween__xAxis">
+        <div class="professionalCard--appointmentType">
+            <span>
+                Terapia  <b> {{ ProfessionalAppointmentType }} </b> - {{ ProfessionalAppointmentDuration }} min.
+            </span>
+        </div>
+        <div class="professionalCard--sessionCost">
+            <span>
+                <b> ${{ ProfessionalSessionCost }} {{ ProfessionalCurrency }} </b>
+            </span>
+        </div>
+    </div>
 </div>
 
 </template>
 
 
 <style >
-.professionalCard{
+.professionalCard {
+    min-width: 500px;
     border: 1px solid rgba(160, 160, 160, .5);
     box-shadow: 10px 10px 10px rgba(160, 160, 160, .5);
     border-radius: 20px;
@@ -62,41 +78,43 @@ export default {
     width: 50%;
     display: grid !important;
     grid-template-columns: 20% 80%;
-    grid-template-rows: repeat(5, 20%);
+    grid-template-rows: repeat(6, 16%);
     grid-template-areas: 
     "professionalImg professionalTitle"
     "professionalImg professionalName"
     ". professionalIdentificationprofessionalCard"
     ". professionalApproach"
-    "professionalBadges professionalBadges";
+    "professionalBadges professionalBadges"
+    "professionalAppointmentTypeAndCost professionalAppointmentTypeAndCost"
+    /* "professionalAppointmentType professionalCurrency"; */
 }
-.professionalCard--imageContainer__professional{
+.professionalCard--imageContainer__professional {
     width: 100px;
     height: 100px;
     border-radius: 100px;
     grid-area: professionalImg;
 }
-.professionalCard--professionalTitle{
+.professionalCard--professionalTitle {
     grid-area: professionalTitle;
     color: #999;
 }
-.professionalCard--professionalName{
+.professionalCard--professionalName {
     grid-area: professionalName;
 }
-.professionalCard--identificationprofessionalCard{
+.professionalCard--identificationprofessionalCard {
     grid-area: professionalIdentificationprofessionalCard;
 }
-.professionalCard--approach{
+.professionalCard--approach {
     grid-area: professionalApproach;
-    p{
-        b{
+    p {
+        b {
             font-weight: 900;
         }
     }
 }
-.professionalCard--expertiseBadges{
+.professionalCard--expertiseBadges {
     grid-area: professionalBadges;
-    span{
+    span {
         color: #000;
         background-color: #6ff1b5;
         border-radius: 10px;
@@ -106,11 +124,23 @@ export default {
         margin: 0 5px;
     }
 }
-.professionalCard--identificationprofessionalCard{
-    p{
-        b{
+.professionalCard--identificationprofessionalCard {
+    p {
+        b {
             font-weight: 900;
         }
     }
+}
+.professionalCard--appointmentType {
+    /* grid-area: professionalAppointmentType; */
+}
+.professionalCard--sessionCost {
+    /* grid-area: professionalCurrency; */
+}
+.dFlex--spaceBetween__xAxis{
+    grid-area: professionalAppointmentTypeAndCost;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 0 10px;
 }
 </style>
