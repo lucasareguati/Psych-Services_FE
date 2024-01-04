@@ -1,6 +1,6 @@
 
 <script>
-import ContactUs from '../components/ContactUs.vue'
+import ContactUs from '../components/features/ContactUs.vue'
 export default {
   components: { ContactUs },
 
